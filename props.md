@@ -1,0 +1,12 @@
+[
+	["props", "@ The waiting is over! Finally someone played this stunning crazy good song! :thumbsup:"],
+	["bomb", "@ Get your motors running! A bomb ((💣)) of a song just exploded and I was at its center!"],
+	["love", "@ Your generosity in sharing this tune has changed my life forever. :heart:"],
+	["beer", "@ Digs this song and poured you a :beer:"],
+	["chicken", "Oh boy, this song is making @ do the funky chicken!"],
+	["sweet", "Ah yeah, @ you friggin rule man!"],
+	["eagles", "@ I hate the f–in’ Eagles, man!"],
+	["metallica", "We don't need no stinkin' dave mustaine!"],				
+	["bieber","Nice play @, thank god it isn't Justin Bieber!"]
+				
+]
