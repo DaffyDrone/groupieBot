@@ -6,37 +6,16 @@
 
 
 (function () {
-
-	/*
-	LIST WITH SHORT COMMANDS.
-	You can add extra commands here dloc
-	
-	If you want to add an other one:
-	1. add extra comma after the ] of the last line
-	2. start the new line with [ ]
-	3. put the command in the first part "command" , "text"
-	4. use @ where the current dj's name will be displayed
-	
-	
-	
-	var propMessage = [
-				["props", "@ The waiting is over! Finally someone played this stunning crazy good song! :thumbsup:"],
-				["bomb", "@ Get your motors running! A bomb ((💣)) of a song just exploded and I was at its center!"],
-				["love", "@ Your generosity in sharing this tune has changed my life forever. :heart:"],
-				["beer", "@ Digs this song and poured you a :beer:"],
-				["chicken", "Oh boy, this song is making @ do the funky chicken!"],
-				["sweet", "Ah yeah, @ you friggin rule man!"],
-				["eagles", "@ I hate the f–in’ Eagles, man!"],
-				["metallica", "We don't need no stinkin' dave mustaine!"],				
-				["bieber","Nice play @, thank god it isn't Justin Bieber!"] // << add extra comma after the ] of the previous one
-				// << new commands
-	];
-	*/
 	
 	var propMessage;
-	$.get('https://raw.githubusercontent.com/DaffyDrone/groupieBot/master/props.md', function (response) {
-		propMessage = JSON.parse(response);
-	});
+	
+	var updateProps = function () {
+		$.get('https://raw.githubusercontent.com/DaffyDrone/groupieBot/master/props.md', function (response) {
+			propMessage = JSON.parse(response);
+		});
+	};
+	
+	updateProps();
 	
 	//GLOBAL variables holy3
 	var quizMaxpoints = 300;
@@ -48,6 +27,19 @@
 	var quizLastUID = null;
 	var quizLastScore = 0;
 	var quizUsers = [];
+	
+	var rssFeeds = [
+			["baseball","http://sports.espn.go.com/espn/rss/mlb/news",16,0],
+			["progrock","http://progressiverockcentral.com/en/feed/",10,0],
+			["rock","http://www.rollingstone.com/music.rss",25,0],
+			["metal","http://www.metalstorm.net/rss/news.xml",15,0],
+			["jokes","http://www.jokesareawesome.com/rss/latest/25/",25,0],
+			["oneliners","http://www.jokespalace.com/category/one-liners/feed/",10,0],
+			["chicagobears","http://feeds.feedburner.com/chicagobears/news?format=xml",15,0],
+			["football","http://sports.espn.go.com/espn/rss/nfl/news",16,0],
+			["facts","http://uber-facts.com/feed/",10,0],
+			["isles","https://sports.yahoo.com/nhl/teams/nyi/rss.xml",34,0]
+		];
 
 
     /*window.onerror = function() {
@@ -893,17 +885,22 @@
                 basicBot.chatUtilities.action(chat);
 			
 			/*
-				shortCommands
-				propmes
+				propMessage
 			*/
-
-
-				for (var i = 0; i < propMessage.length; ++i){			
-					if (chat.message === '.' + propMessage[i][0]) {
-						API.sendChat("/me " + propMessage[i][1].replace("@","@"+API.getDJ().username));
+			
+			if (chat.message.match(/.*[.](\S*).*/)) {
+				var regexObj;
+				for (var i = 0; i < propMessage.length; ++i){
+					regexObj = new RegExp(".*[.]" + propMessage[i][0] + ".*");
+					if (chat.message.match(regexObj)) {
+						if(chat.message.match(/@/)) {			
+							API.sendChat("/me " + propMessage[i][1].replace("@","@" + chat.message.replace(/.*[@](\S*).*/, "$1")));
+						} else {
+							API.sendChat("/me " + propMessage[i][1].replace("@","@"+API.getDJ().username));
+						}
 					}
 				}
-			
+			}
 			
 			//holy3
 			if (quizState && quizBand != "" && quizYear != "" && quizCountry != "" && chat.uid != basicBot.room.currentDJID) {
@@ -912,19 +909,19 @@
 				var country = new RegExp(quizCountry, 'g');
 				
 				if (chat.message.match(year) && quizCycle == 1) {
-					API.sendChat("@" + chat.un + " Correct, +1 point! From what country does " + quizBand + " come from?");
+					API.sendChat("/me @" + chat.un + " Correct, +1 point! From what country does " + quizBand + " come from?");
 					quizLastScore += 1;
 					quizCycle += 1;
 					quizLastUID = chat.uid;				
 				} else if (chat.message.match(country) && chat.uid == quizLastUID && quizCycle == 2) {
-					API.sendChat("@" + chat.un + " Correct, +1 point! Throw the dices when ready by typing 3 in the chat.");
+					API.sendChat("/me @" + chat.un + " Correct, +1 point! Throw the dices when ready by typing 3 in the chat.");
 					quizLastScore += 1;
 					quizCycle += 1;
 				} else if (chat.message == "3" && chat.uid == quizLastUID && quizCycle == 3) {
 					quizCycle += 1;
 					var n1 = Math.floor(Math.random() * 6) + 1;
 					var n2 = Math.floor(Math.random() * 6) + 1;
-					var msg = "@" + chat.un + " You rolled a :game_die: " + n1 + " and a :game_die: " + n2;
+					var msg = "@" + chat.un + "/me You rolled a :game_die: " + n1 + " and a :game_die: " + n2;
 					switch (n1 + n2) {
 						case 3:
 							quizLastScore += 10;
@@ -3967,6 +3964,160 @@
 					}
 				}
 			},
+			
+			
+			newsCommand: {
+			command: 'news',  //The command to be called. With the standard command literal this would be: !bacon
+			rank: 'user', //Minimum user permission to use the command
+			type: 'startsWith', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+			functionality: function (chat, cmd) {
+				if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+				if (!bot.commands.executable(this.rank, chat)) return void (0);
+				else {
+						var msg = chat.message;
+						var lastSpace = msg.lastIndexOf(' ');
+						var parameter = msg.substring(lastSpace + 1);
+						var selectedRSSFeed = -1;
+						
+						simpleAJAXLib = {
+						
+								init: function () {
+									for (var i = 0; i < rssFeeds.length; i++) {
+										//Match the parameter with the rssFeeds array. If non match, display the howto.
+										if (parameter == rssFeeds[i][0]) {
+											this.fetchJSON(rssFeeds[i][1]);
+											selectedRSSFeed = i;
+										} else if (selectedRSSFeed == -1 && rssFeeds.length - 1 == i) {
+												var rssOptions = "/me Please use one of the following parameters (ie.'!news rock'): '" + rssFeeds[0][0] + "'";
+												for (var i = 1; i < rssFeeds.length; i++) {
+													rssOptions += ", '";
+													rssOptions += rssFeeds[i][0];
+													rssOptions += "'";
+												}
+												rssOptions += ".";											
+												API.sendChat(rssOptions);
+										}
+									}
+								},
+						 
+								fetchJSON: function (url) {
+									var root = 'https://query.yahooapis.com/v1/public/yql?q=';
+									var yql = 'select * from xml where url="' + url + '"';
+									var proxy_url = root + encodeURIComponent(yql) + '&format=json&diagnostics=false&callback=simpleAJAXLib.display';
+									document.getElementsByTagName('body')[0].appendChild(this.jsTag(proxy_url));
+								},
+						 
+								jsTag: function (url) {
+									var script = document.createElement('script');
+									script.setAttribute('type', 'text/javascript');
+									script.setAttribute('src', url);
+									return script;
+								},
+						 
+								display: function (results) {
+									if (selectedRSSFeed != -1) {
+									
+										//var rNumber = Math.floor(Math.random()*rssFeeds[selectedRSSFeed][2]);
+										if (rssFeeds[selectedRSSFeed][3] != rssFeeds[selectedRSSFeed][2] - 1) {
+											rssFeeds[selectedRSSFeed][3] += 1;
+										} else {
+											rssFeeds[selectedRSSFeed][3] = 0;
+										}
+										
+										var long_url = results.query.results.rss.channel.item[rssFeeds[selectedRSSFeed][3]].link;
+											
+										if (rssFeeds[selectedRSSFeed][0] === "oneliners") {
+											var oneliner = results.query.results.rss.channel.item[rssFeeds[selectedRSSFeed][3]].description;
+											oneliner = oneliner.replace('<![CDATA[','').replace(']','').replace('<p>','').replace('</p>','').replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi,'');
+											oneliner = oneliner.replace(/&#([0-9]{1,4});/gi, function(match, numStr) {
+												var num = parseInt(numStr, 10); // read num as normal number
+												return String.fromCharCode(num);
+											});
+											oneliner = oneliner.replace('/ +/','');
+											if (oneliner.length > 249) {
+												var counter=0;
+												for (var x=0; x < oneliner.length; x++) {
+												  setTimeout(function() {API.sendChat("/me " + oneliner.substring(counter*249,(counter+1)*249));counter++;},x*2000);
+												}
+											} else {
+												API.sendChat(						
+													oneliner
+												);
+											}
+										} else if(rssFeeds[selectedRSSFeed][0] === "isles") {
+											var islesDescr = results.query.results.rss.channel.item[rssFeeds[selectedRSSFeed][3]].description;
+											var islesPart1 = islesDescr.substr(0,200);
+											
+											API.sendChat(
+											"/me "
+											+ results.query.results.rss.channel.item[rssFeeds[selectedRSSFeed][3]].pubDate 
+											+ " // "
+											+ islesPart1
+											+ "..."
+											);
+											
+										} else {
+											API.sendChat(
+											"/me "
+											+ results.query.results.rss.channel.item[rssFeeds[selectedRSSFeed][3]].title 
+											+ " (" 
+											+ long_url
+											+ ")");
+										}
+									}
+								}
+						}
+						simpleAJAXLib.init();
+					}
+				}
+			},
+
+			weatherCommand: {
+				command: 'weather',  //The command to be called. With the standard command literal this would be: !bacon
+				rank: 'user', //Minimum user permission to use the command
+				type: 'startsWith', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+				functionality: function (chat, cmd) {
+					if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+					if (!bot.commands.executable(this.rank, chat)) return void (0);
+					else {
+							var msg = chat.message;
+							var lastSpace = msg.lastIndexOf(' ');
+							var parameter = msg.substring(lastSpace + 1);
+							
+							simpleAJAXLib = {
+							
+									init: function () {
+										this.fetchJSON("http://rss.accuweather.com/rss/liveweather_rss.asp?metric=2&locCode=" + parameter);
+									},
+							 
+									fetchJSON: function (url) {
+										var root = 'https://query.yahooapis.com/v1/public/yql?q=';
+										var yql = 'select * from xml where url="' + url + '"';
+										var proxy_url = root + encodeURIComponent(yql) + '&format=json&diagnostics=false&callback=simpleAJAXLib.display';
+										document.getElementsByTagName('body')[0].appendChild(this.jsTag(proxy_url));
+									},
+							 
+									jsTag: function (url) {
+										var script = document.createElement('script');
+										script.setAttribute('type', 'text/javascript');
+										script.setAttribute('src', url);
+										return script;
+									},
+							 
+									display: function (results) {								
+										var temperature = results.query.results.rss.channel.item[0].description;
+										temperature = temperature.replace('<img src="','').replace('">','');
+										temperature = temperature.replace(/&#([0-9]{1,4});/gi, function(match, numStr) {
+													var num = parseInt(numStr, 10); // read num as normal number
+													return String.fromCharCode(num);
+												});
+										API.sendChat("/me " + temperature);
+									}
+							}
+							simpleAJAXLib.init();
+					}
+				}
+			},
 
 			
 			//holy3: minigame (question at every song) with a predefined maximum
@@ -3998,7 +4149,21 @@
 						quizLastScore = 0;
 						quizUsers = [];
 						quizState = true;
-						API.sendChat("Holy3 Started! Rules: Holy3 is a trivia game and is currently set to " + maxPoints + " points to win. The current DJ is not allowed to guess. Need to answer 2 questions. You can only answer 2nd Q IF you correctly guessed the first Q.");
+						API.sendChat("/me Holy3 Started! Rules: Holy3 is a trivia game and is currently set to " + maxPoints + " points to win. The current DJ is not allowed to guess. Need to answer 2 questions. You can only answer 2nd Q IF you correctly guessed the first Q.");
+					}
+				}
+			},
+			
+			updatePropsCommand: {
+				command: 'updateProps',
+				rank: 'bouncer', 
+				type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+					else {
+						updateProps();
+						API.sendChat("/me Updated the props list!");
 					}
 				}
 			}
