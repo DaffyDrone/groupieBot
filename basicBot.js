@@ -10,7 +10,7 @@
 	var propMessage;
 	
 	var updateProps = function () {
-		$.get('https://raw.githubusercontent.com/DaffyDrone/groupieBot/master/props.md', function (response) {
+		$.get('https://rawgit.com/DaffyDrone/groupieBot/master/props.md', function (response) {
 			propMessage = JSON.parse(response);
 		});
 	};
