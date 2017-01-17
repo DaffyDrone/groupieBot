@@ -5,7 +5,7 @@
 	["beer", "@ Digs this song and poured you a :beer:"],
 	["chicken", "Oh boy, this song is making @ do the funky chicken!"],
 	["sweet", "Ah yeah, @ you friggin rule man!"],
-	["nice", "@ loves this song so much he went streaking!!"]
+	["nice", "@ loves this song so much he went streaking!!"],
 	["eagles", "@ I hate the f–in’ Eagles, man!"],
 	["metallica", "We don't need no stinkin' dave mustaine!"],				
 	["bieber","Nice play @, thank god it isn't Justin Bieber!"]
