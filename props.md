@@ -12,5 +12,6 @@
 	["bieber", "Nice play @, thank god it isn't Justin Bieber!"],
 	["beaud", "Long live the Beatles!"],
 	["ep", "the loveable loser"],
-	["undowear", "has a man-crush on Dave Mustaine"]
+	["undowear", "has a man-crush on Dave Mustaine"],
+	["metal", "!gif headbang"]
 ]
