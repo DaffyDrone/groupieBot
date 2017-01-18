@@ -7,7 +7,7 @@
 	["sweet", "Ah yeah, @ you friggin rule man!"],
 	["nice", "@ loves this song so much he went streaking!!"],
 	["eagles", "@ I hate the f–in’ Eagles, man!"],
-	["metallica", "We don't need no stinkin' dave mustaine!"],				
-	["bieber","Nice play @, thank god it isn't Justin Bieber!"]
-				
+	["metallica", "We don't need no stinkin' dave mustaine!"],
+	["dloc","Dictionary definition of dloc: Best defined as a melting pot of psych, rock and reggae. He'll hypnotize you in a swaying trance."],
+	["bieber","Nice play @, thank god it isn't Justin Bieber!"]			
 ]
