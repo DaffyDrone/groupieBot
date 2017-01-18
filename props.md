@@ -13,5 +13,5 @@
 	["beaud", "Long live the Beatles!"],
 	["ep", "the loveable loser"],
 	["undowear", "has a man-crush on Dave Mustaine"],
-	["metal", "!gif headbang"]
+	["spinaltap", "Oh, we've got a bigger dressing room than the puppets. That's refreshing."]
 ]
