@@ -14,5 +14,5 @@
 	["ep", "the loveable loser"],
 	["undowear", "has a man-crush on Dave Mustaine"],
 	["spinaltap", "We've got a bigger dressing room than the puppets. Thats refreshing."],
-	["rock", "@ Loves this song so much they pused you into the mosh pit]
+	["rock", "This song rocks yo"]
 ]
