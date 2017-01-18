@@ -11,5 +11,5 @@
 	["dloc", "Dictionary definition of dloc: Best defined as a melting pot of psych, rock and reggae. He'll hypnotize you in a swaying trance."],
 	["bieber", "Nice play @, thank god it isn't Justin Bieber!"],
 	["beaud", "Long live the Beatles!"],
-	[ep", "the loveable loser"]
+	["ep", "the loveable loser"]
 ]
