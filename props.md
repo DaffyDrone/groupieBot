@@ -22,5 +22,8 @@
 	["rockipedia", "rockin the joint since 2014"],
 	["garyw", "the plug historian and yacht rock expert"],
 	["scooter", "a 20th century boy, banging a gong in his Jeepster"],
-	["fc", "She's so left she passed right twice"]
+	["fc", "She's so left she passed right twice"],
+	["boobs", "Yes please"],
+	["knotted", "The ferret whisperer and avant-garde master"],
+	["woot", "You are gold, solid freaking gold"]
 ]
