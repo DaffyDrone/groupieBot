@@ -21,5 +21,6 @@
 	["lucas", "bringing the sickest tunes from Brasil"],
 	["rockipedia", "rockin the joint since 2014"],
 	["garyw", "the plug historian and yacht rock expert"],
-	["scooter", "a 20th century boy, banging a gong in his Jeepster"]
+	["scooter", "a 20th century boy, banging a gong in his Jeepster"],
+	["fc", "She's so left she passed right twice"]
 ]
