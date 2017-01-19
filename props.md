@@ -14,5 +14,9 @@
 	["ep", "the loveable loser"],
 	["undowear", "has a man-crush on Dave Mustaine"],
 	["spinaltap", "We've got a bigger dressing room than the puppets. Thats refreshing."],
-	["rock", "This song rocks yo"]
+	["rock", "This song rocks yo"],
+	["groupie", "Last seen backstage with Tommy Lee"],
+	["stereosound", "the Belgian musical genius and MissGroupie calls him daddy"],
+	["fub", "closet Prog fan and MissGroupie's personal boytoy"],
+	["lucas", "bringing the sickest tunes from Brasil"]
 ]
