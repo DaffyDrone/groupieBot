@@ -19,11 +19,19 @@
 	["stereosound", "the Belgian musical genius and MissGroupie calls him daddy"],
 	["fub", "closet Prog fan and MissGroupie's personal boytoy"],
 	["lucas", "bringing the sickest tunes from Brasil"],
-	["rockipedia", "rockin the joint since 2014"],
+	["pedia", "rockin the joint since 2014"],
 	["garyw", "the plug historian and yacht rock expert"],
 	["scooter", "a 20th century boy, banging a gong in his Jeepster"],
 	["fc", "She's so left she passed right twice"],
 	["boobs", "Yes please"],
 	["knotted", "The ferret whisperer and avant-garde master"],
-	["woot", "You are gold, solid freaking gold"]
+	["woot", "You are gold, solid freaking gold"],
+	["sick", "this song gave me chronic diarrhea, thanks"],
+	["weed", "roll it up, light it up, smoke it up"],
+	["hellyeah", "Nice one @, your ok in my book"],
+	["isles", "the only team worse is the Cleveland Browns"],
+	["cards", "the Yankees of the NL"],
+	["baseball", "One, two, three strikes yerrrr out at the ole ballgame"],
+	["yogi", "It's like deja vu all over again"],
+	["drunk", "One tequila, two tequila, three tequila, FLOOR!]
 ]
