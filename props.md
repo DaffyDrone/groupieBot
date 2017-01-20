@@ -33,5 +33,5 @@
 	["cards", "the Yankees of the NL"],
 	["baseball", "One, two, three strikes yerrrr out at the ole ballgame"],
 	["yogi", "It's like deja vu all over again"],
-	["drunk", "One tequila, two tequila, three tequila, FLOOR!]
+	["drunk", "One tequila, two tequila, three tequila, FLOOR!"]
 ]
