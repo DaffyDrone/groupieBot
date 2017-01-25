@@ -40,6 +40,9 @@
 	["beatles", "better than Rush"],
 	["metal", "I don't dance, i headbang"],
 	["yo", "Wazzzzupppppppppp"],
-	["lol", "You made me laugh so hard, tears ran down my leg"]
+	["lol", "You made me laugh so hard, tears ran down my leg"],
+	["megadeth", "If you guys are going to be throwing beer bottles at us, at least make sure they're full - Dave Mustaine"]
+	
+	
 	
 ]
