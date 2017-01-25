@@ -33,5 +33,13 @@
 	["cards", "the Yankees of the NL"],
 	["baseball", "One, two, three strikes yerrrr out at the ole ballgame"],
 	["yogi", "It's like deja vu all over again"],
-	["drunk", "One tequila, two tequila, three tequila, FLOOR!"]
+	["drunk", "One tequila, two tequila, three tequila, FLOOR!"],
+	["plug", "Probably in maintenance mode.....are we there yet?"],
+	["cubs", "We have to win for the people to show up. The Cubs have to show up for the people to show up. – Eddie Einhorn, White Sox Owner"],
+	["padres", "Winfield goes back to the wall, he hits his head on the wall and it rolls off! It's rolling all the way to second base. This is a terrible thing for the Padres - Jerry Coleman, longtime Padres broadcaster (RIP)"],
+	["beatles", "better than Rush"],
+	["metal", "I don't dance, i headbang"],
+	["yo", "Wazzzzupppppppppp"],
+	["lol", "You made me laugh so hard, tears ran down my leg"]
+	
 ]
