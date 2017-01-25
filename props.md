@@ -41,8 +41,11 @@
 	["metal", "I don't dance, i headbang"],
 	["yo", "Wazzzzupppppppppp"],
 	["lol", "You made me laugh so hard, tears ran down my leg"],
-	["megadeth", "If you guys are going to be throwing beer bottles at us, at least make sure they're full - Dave Mustaine"]
-	
-	
-	
+	["megadeth", "If you guys are going to be throwing beer bottles at us, at least make sure they're full - Dave Mustaine"],
+	["pizza", "better than sex"],
+	["stones", "you can't always get what you want"],
+	["rollingstones", "QUICK! Someone get Keith a blood transfusion"],
+	["bacon", "I'd be a vegetarian if bacon grew on trees"],
+	["groovy", "this spin is far-out, man"],
+	["floyd", "how can you have any pudding if you dont eat your meat"]
 ]
