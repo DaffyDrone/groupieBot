@@ -58,7 +58,7 @@
 	["neil", "it's better to burn out than fade away"],
 	["twss", "That's What -She"],
 	["neilyoung", "This note's for you...unless my lawyer says it's not"],
-	["homer", "Now, son, you don't want to drink beer. That's for daddies, and kids with fake IDs"]
+	["homer", "Now, son, you don't want to drink beer. That's for daddies, and kids with fake IDs"],
 	["cya", "thanks for hanging, see you soon!"],
 	["blow", "cocaine is a helluva drug"],
 	["sex", "better than pizza"],
