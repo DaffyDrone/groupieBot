@@ -47,5 +47,6 @@
 	["rollingstones", "QUICK! Someone get Keith a blood transfusion"],
 	["bacon", "I'd be a vegetarian if bacon grew on trees"],
 	["groovy", "this spin is far-out, man"],
-	["floyd", "how can you have any pudding if you dont eat your meat"]
+	["floyd", "how can you have any pudding if you dont eat your meat"],
+	["sorry", "sorry, not sorry"]
 ]
