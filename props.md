@@ -50,5 +50,10 @@
 	["floyd", "how can you have any pudding if you dont eat your meat"],
 	["sorry", "sorry, not sorry"],
 	["acdc", "for those about to rock, we salute you!"],
-	["welcome", "You have entered the darkside of Plug, You can check out any time you like, but you can never leave!"]
+	["welcome", "You have entered the darkside of Plug, You can check out any time you like, but you can never leave!"],
+	["boston", "what a bunch of Massholes"],
+	["bye", "Adios, bitchachos"],
+	["legends", "I cant be a legend yet. I'm not dead"],
+	["lemmy", "to get hangovers you have to stop drinking"]
+	
 ]
