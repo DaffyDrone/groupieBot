@@ -53,7 +53,7 @@
 	["welcome", "You have entered the darkside of Plug, You can check out any time you like, but you can never leave!"],
 	["boston", "what a bunch of Massholes"],
 	["bye", "Adios, bitchachos"],
-	["legends", "I cant be a legend yet. I'm not dead"],
+	["legend", "I cant be a legend yet. I'm not dead"],
 	["lemmy", "to get hangovers you have to stop drinking"],
 	["neil", "it's better to burn out than fade away"],
 	["twss", "That's What -She"],
@@ -63,6 +63,9 @@
 	["blow", "cocaine is a helluva drug"],
 	["sex", "better than pizza"],
 	["fail", "You're one pathetic loser"],
-	["thanks", "fist bump!!"]
-		
+	["thanks", "fist bump!!"],
+	["rip", "Pouring one out for our fallen musicians"],
+	["bowie", “I will be king, and you, you will be queen.”]
+
+
 ]
