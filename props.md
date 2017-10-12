@@ -66,7 +66,9 @@
 	["thanks", "fist bump!!"],
 	["rip", "Pouring one out for our fallen musicians"],
 	["bowie", "I will be king, and you, you will be queen."],
-	["sheik", "The Dream Theater expert, you might find him Awake or Falling into Infinity"]
+	["sheik", "The Dream Theater expert, you might find him Awake or Falling into Infinity"],
+	["smurph", "Likes her vegetables, but not her Korn"],
+	["spinny", "The Dutch Big Foot spinning the phat beats"]
 
 
 ]
