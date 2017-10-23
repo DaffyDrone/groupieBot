@@ -68,7 +68,8 @@
 	["bowie", "I will be king, and you, you will be queen."],
 	["sheik", "The Dream Theater expert, you might find him Awake or Falling into Infinity"],
 	["smurph", "Likes her vegetables, but not her Korn"],
-	["spinny", "The Dutch Big Foot spinning the phat beats"]
+	["spinny", "The Dutch Big Foot spinning the phat beats"],
+	["fire", "This song is HOT HOT HOT yo"]
 
 
 ]
